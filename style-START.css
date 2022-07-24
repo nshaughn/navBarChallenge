@@ -1,0 +1,99 @@
+/* Some CSS Setup - nothing to do with flexbox */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background-image: linear-gradient(260deg, #2376ae 0%, #c16ecf 100%);
+}
+
+a {
+  color:white;
+  font-weight: 100;
+  letter-spacing: 2px;
+  text-decoration: none;
+  background:rgba(0,0,0,0.2);
+  padding:20px 5px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  transition:all 0.5s;
+}
+
+a:hover {
+  background:rgba(0,0,0,0.3);
+}
+
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding:50px;
+}
+
+/* Flex Container */
+.flex-nav ul {
+  border:1px solid black;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex; 
+  justify-content: space-around;
+} /* the area of the document laid out using flexbox is the flex container */
+/* here it is done by setting the display property to flex, */
+/* the justify-content property with value space-around evenly distributes them in the line with equal space around them */
+.social {
+  flex-grow: 1; /* flex grow gets rid of gaps between the items and socials */
+}
+
+li {
+  flex-grow: 2; /* flex grow used again */
+}
+
+/* here we use media queries to define different style rules for different media types */
+/* this one is for smaller screens, here content is centred in a long list*/
+@media all and (max-width:500px) { /* the media all is used for all media type devices */
+  .wrapper {
+    width: 90%;
+    display: flex;
+    justify-content: center;
+  }
+/* socials set to 25% so they all fit on the screen in one line at the bottom */
+.social {
+  width: 25%;
+}
+
+li {
+  width: 100%;
+}
+
+.flex-nav ul {
+  flex-wrap: wrap;
+}
+}
+ /* @media screen is used for the different types of screens on devices */
+@media screen and (max-width: 1000px) and (min-width:501px) {
+.wrapper {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+}
+
+.social {
+  width: 25%;
+}
+
+li {
+  width: 50%;
+}
+.flex-nav ul {
+  flex-wrap: wrap;
+}
+}
+/* this is another media query for specifically sized screens, that allows the list to show to columns. */
+
